@@ -24,7 +24,7 @@
     - paste in browser tab with http:// 
     - not with https://
 
-## Ngnix config
+## Ngnix config and a simple HTML web 
 - **Nginx config**
     - ```cd /etc/nginx```
     - ```vi nginx.conf``` (view only mode)
@@ -39,3 +39,21 @@
 
 ## Hosting Multiple Websites
 - [fileLink](Hosting_Multiple_Websites.md)
+
+## Custom Domain
+- Register a domain name.
+    - if want to try free domain [videoLink](https://www.youtube.com/watch?v=eu1BjND0gRo)
+- After watching this video
+- Go to Edit DNS &rarr; Host Records (A & AAAA)  &rarr; Edit
+- Replace the IP with your AWS Instance Public IP
+- Like my domain is: ramandeep.linkpc.net
+- Test is as:
+    - ```http://www.ramandeep.linkpc.net/```
+
+## Configure Error Pages & Different logs handle
+- [fileLink](Hosting_Multiple_Websites.md)
+- If root path '/' file not found:
+    - [fileLink](nginx5.conf)
+
+## **Nginx Enable HTTPS**
+- [fileLink]()

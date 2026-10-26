@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Webpage Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Welcome to Our Webpage</h1>
+            <p>Take reference from us</p>
+        </header>
+
+        <main class="content">
+            <section class="card">
+                <h2>About Us</h2>
+                <p>We are a team of dedicated professionals providing top-notch solutions tailored to your needs.</p>
+            </section>
+
+            <section class="card">
+                <h2>Our Services</h2>
+                <ul>
+                    <li>Custom Web Development</li>
+                    <li>Enterprise Software Solutions</li>
+                    <li>AI Integration Services</li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h2>Contact Us</h2>
+                <p>Email: <a href="">contact@xyz.com</a></p>
+                <p>Phone: +123-456-7890</p>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; <span id="year">year</span> Professional Webpage. All Rights Reserved.</p>
+        </footer>
+    </div>
+</body>
+<script>
+    (function(){
+        document.getElementById('year').textContent = `${(new Date()).getFullYear()}`;
+    })()
+ 
+ </script>
+</html>
+
