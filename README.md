@@ -55,5 +55,47 @@
 - If root path '/' file not found:
     - [fileLink](nginx5.conf)
 
-## **Nginx Enable HTTPS**
-- [fileLink]()
+# **Nginx Enable HTTPS**
+- [fileLink](NginxEnableHTTPS.md)
+- Go To [TLS Checker](https://www.cdn77.com/tls-test) to see how good your website
+
+# **Reverse Proxy**
+- [fileLink](ReverseProxy.md)
+
+# **Nginx Load Balancing**
+- [fileLink](Nginx_Load_Balancing.md)
+
+# **Nginx Backup Server**
+- Backup Server will only server in case of Primary Fail
+- small change in code
+```nginx
+upstream backend {
+    server 192.168.1.1:3000;
+    server 192.168.1.2:3000;
+    server 192.168.1.3:3000 backup;
+}
+```
+
+# **Nginx caching**
+- It is a process where Nginx stores copies of responses (like HTML, images, or API data) to serve them directly to users, reducing backend load and improving response times.
+
+- do this to enable caching
+```nginx
+http{
+    # Define cache path
+    proxy_cache_path /var/cache/nginx levels=1:2 keys_zone=my_cache:10m inactive=60m max_size=1g;
+    server{
+        listen 80;
+        server_name example.com;
+
+        location /{
+            proxy_cache my_cache;                   # Enable caching using the defined cache
+            proxy_cache_valid 200 60m;              # Cache 200 OK responses for 60 minutes
+            proxy_cache_key "$scheme$request_uri";  # Define the cache key
+
+            proxy_pass http://backend_server;                 # Forward requests to the backend server
+            add_header X-Cache-Status $upstream_cache_status; # Add cache status header for debugging
+        }
+    }
+}
+```
